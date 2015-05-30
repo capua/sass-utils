@@ -1,0 +1,41 @@
+///
+/// Generate helpful layout styles by applying margin left to elements
+/// Keeps the first element flush with the left side
+///
+/// @author Guil Hernandez
+///
+/// @link http://sassbreak.com/double-ampersand-mixin/
+///
+/// @param {Length}   $margin - Left margin to separate adjacent elements
+///
+/// @example scss - Usage
+///   .btn {
+///     background: dodgerblue;
+///     color: white;
+///     padding: 10px;
+///     border-radius: 4px;
+///
+///     @include doubly(10px) {
+///       background: firebrick;
+///     }
+///   }
+///
+/// @example css - CSS output
+///   .btn {
+///     background: dodgerblue;
+///     color: white;
+///     padding: 10px;
+///     border-radius: 4px;
+///   }
+///
+///   .btn + .btn {
+///     margin-left: 10px;
+///     background: firebrick;
+///   }
+///
+@mixin doubly($margin: null) {
+  & + & {
+    margin-left: $margin;
+    @content;
+  }
+}
