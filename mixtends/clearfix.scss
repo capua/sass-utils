@@ -1,0 +1,50 @@
+///
+/// Micro-clearfix hack with mixin + placeholder (mixtend)
+///
+/// @author Hugo Giraudel
+///
+/// @link http://hugogiraudel.com/2014/03/31/getting-the-most-out-of-sass-placeholders/
+/// @link https://css-tricks.com/snippets/sass/extend-wrapper-aka-mixtend/
+///
+/// @param {Bool}   $extend - If the rule is declared in a @media block must be false
+///
+/// @example scss - Usage
+///   .a { @include clearfix; }
+///   .b { @include clearfix; }
+///
+///   @media (min-width: 48em) {
+///     .c {
+///       @include clearfix(false);
+///     }
+///   }
+///
+/// @example css - CSS output
+///   .a:after, .b:after {
+///     content: '';
+///     display: table;
+///     clear: both;
+///   }
+///
+///   @media (min-width: 48em) {
+///     .c:after {
+///       content: '';
+///       display: table;
+///       clear: both;
+///     }
+///   }
+///
+@mixin clearfix($extend: true) {
+  @if $extend {
+    @extend %clear;
+  } @else {
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+}
+
+%clear {
+  @include clearfix($extend: false);
+}
