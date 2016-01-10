@@ -1,0 +1,15 @@
+///
+/// Quickly center any element within its parent.
+/// Requires width or max-width to be set.
+///
+/// @example scss - Usage
+///   .my-element {
+///     @include center-block;
+///     with: 100px;
+///   }
+///
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
