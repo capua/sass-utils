@@ -1,0 +1,57 @@
+///
+/// Maintain aspect ratio
+///
+/// @link https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin
+/// @link http://andrew.hedges.name/experiments/aspect_ratio
+///
+/// @example html - Usage
+///   <div class="sixteen-nine">
+///     <div class="content">
+///       insert content here
+///       this will maintain a 16:9 aspect ratio
+///     </div>
+///   </div>
+///
+/// @example scss - Usage
+///   .sixteen-nine {
+///     @include aspect-ratio(16, 9);
+///   }
+///
+/// @example css - CSS output
+///   .sixteen-nine {
+///     position: relative;
+///   }
+///
+///   .sixteen-nine:before {
+///     display: block;
+///     content: "";
+///     width: 100%;
+///     padding-top: 56.25%;
+///   }
+///
+///   .sixteen-nine > .content {
+///     position: absolute;
+///     top: 0;
+///     left: 0;
+///     right: 0;
+///     bottom: 0;
+///   }
+///
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &:before {
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
