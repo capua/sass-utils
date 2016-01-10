@@ -9,7 +9,7 @@
 ///
 /// @example scss - Usage
 ///   .my-element {
-///     @include on-event($self: true) {
+///     @include on-event(true) {
 ///       color: blue;
 ///     }
 ///   }
