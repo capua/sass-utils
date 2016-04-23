@@ -1,0 +1,32 @@
+///
+/// Sticky footer using Flexbox
+/// Heavily based on Philip Walton's nice solution posted on Solved by Flexbox!
+///
+/// @author Mario Blas
+///
+/// @link https://github.com/philipwalton/solved-by-flexbox
+/// @link http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer
+///
+/// @param {String}   $main-content - CSS selector for the main content element
+///
+/// @example html - Usage
+///   <div class="app-container">
+///     <header>...</header>
+///     <main class="main-content">...</main>
+///     <footer>...</footer>
+///   </div>
+///
+/// @example scss - Usage
+///   .app-container {
+///     @include sticky-footer('.main-content');
+///   }
+///
+@mixin sticky-footer($main-content: '.main-content') {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  #{$main-content} {
+    flex: 1;
+  }
+}
