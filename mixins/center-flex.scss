@@ -1,0 +1,32 @@
+///
+/// Centers the child element both horizontally and vertically inside its parent using Flexbox
+///
+/// @param {Bool}   $horizontal - Center horizontally
+/// @param {Bool}   $vertial - Center vertically
+///
+/// @example scss - Usage
+///   .parent {
+///
+///     &.both {
+///       @include center-flex;
+///     }
+///
+///     &.horizontal {
+///       @include center-flex(true, false);
+///     }
+///
+///     &.vertical {
+///       @include center-flex(false, true);
+///     }
+///   }
+///
+@mixin center-flex($horizontal: true, $vertical: true) {
+  display: flex;
+
+  @if ($horizontal) {
+    justify-content: center;
+  }
+  @if ($vertical) {
+    align-items: center;
+  }
+}
